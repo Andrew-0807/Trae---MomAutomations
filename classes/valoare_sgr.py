@@ -78,12 +78,12 @@ class SGRValueProcessor:
         return result_df
     
     def apply_formula_to_column_H(self, df):
-        """Apply the formula =(I/9%)+I to column H"""
+        """Apply the formula =(I/11%)+I to column H"""
         if 'I' in df.columns:
             # Ensure column I is numeric
             df['I'] = pd.to_numeric(df['I'], errors='coerce')
-            # Apply the formula: (I/0.09) + I
-            df['H'] = (df['I'] / 0.09) + df['I']
+            # Apply the formula: (I/0.11) + I
+            df['H'] = (df['I'] / 0.11) + df['I']
         return df
 
 def main():

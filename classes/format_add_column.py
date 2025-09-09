@@ -143,6 +143,20 @@ class FormatAddColumn(ExcelProcessor):
                         vztva9 = split_df['Valoare TVA.1'].astype(float).sum()
                         adaos9 = split_df['Adaos'].astype(float).sum()
                         summary_data.append([key, achf9, achtva9, vzf9, vztva9, adaos9])
+                    elif key == "%21":
+                        achf21 = split_df['Valoare Achizitie'].str.replace(',', '').astype(float).sum()
+                        achtva21 = achf21 * 0.21
+                        vzf21 = split_df['Valoare TVA.1'].astype(float).sum() / 0.21
+                        vztva21 = split_df['Valoare TVA.1'].astype(float).sum()
+                        adaos21 = split_df['Adaos'].astype(float).sum()
+                        summary_data.append([key, achf21, achtva21, vzf21, vztva21, adaos21])
+                    elif key == "%11":
+                        achf11 = split_df['Valoare Achizitie'].str.replace(',', '').astype(float).sum()
+                        achtva11 = achf11 * 0.11
+                        vzf11 = split_df['Valoare TVA.1'].astype(float).sum() / 0.11
+                        vztva11 = split_df['Valoare TVA.1'].astype(float).sum()
+                        adaos11 = split_df['Adaos'].astype(float).sum()
+                        summary_data.append([key, achf11, achtva11, vzf11, vztva11, adaos11])
                 except Exception as e:
                     print(f"Error processing summary for {key}: {e}")
                     continue
